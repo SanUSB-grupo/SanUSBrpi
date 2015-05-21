@@ -1,0 +1,26 @@
+Antes de iniciar a gravacao verifique se o jumper de tensão da porta USB (+5V) está removido, pois a alimentacao do microcontrolador vem do pino do 3,3V do Rpi, como o circuito abaixo, para que os dois possam se comunicar na mesma tensão (3,3V) e não ocorrer danos nos pinos por sobretensão em (5V).
+Com o pino físico 11 do Rpi, ou seja, wPi 0 ligado por um fio no pino 1 (pin_e3) do microcontrolador, execute o código WiringPiGCCParaGravarPICviaUSB para gravar e regravar o microcontrolador, como descrito abaixo em negrito:
+//********************************************************************************************************
+pi@raspberrypi ~ $ sudo su
+root@raspberrypi:/home/pi# cd /home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB/
+root@raspberrypi:/home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB# gcc -o WiringPiGCCParaGravarPICviaUSB WiringPiGCCParaGravarPICviaUSB.c -l wiringPi
+root@raspberrypi:/home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB# ./WiringPiGCCParaGravarPICviaUSB
+Digite Ctrl+c para sair e gravar o microcontrolador via USB
+^C
+root@raspberrypi:/home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB# /home/share/SanUSBrpi/./sanusb -w /home/share/SanUSBrpi/exemplo1.hex -r
+SanUSB device found
+Writing '/home/share/SanUSBrpi/exemplo1.hex':....
+OK....
+//********************************************************************************************************
+Em substituicao ao código WiringPiGCCParaGravarPICviaUSB para regravacao do microcontrolador, é possível digitar diretamente no LXTerminal: 
+gpio mode 0 out <Enter> (configura o pino wPi 0 como saída), depois:
+ gpio write 0 0 <Enter> (escreve 0 no pino wPi 0 conectado ao pin_e3 do PIC para gravacao) e finalmente: 
+gpio write 0 1 <Enter> (escreve 1 no pino wPi 0 conectado ao pin_e3 do PIC para operacao do microcontrolador após a gravacao).
+root@raspberrypi:/home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB# gpio mode 0 out
+root@raspberrypi:/home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB# gpio write 0 0
+root@raspberrypi:/home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB# gpio write 0 1
+root@raspberrypi:/home/share/SanUSBrpi/CodigoWiringPiParaGravarPICviaUSB# /home/share/SanUSBrpi/./sanusb -w /home/share/SanUSBrpi/exemplo1.hex -r
+SanUSB device found
+
+A placa SanUSB pode ser construída seguindo o tutorial e os programas disponíveis em https://dl.dropbox.com/u/101922388/121007SanUSBOrig.zip ou adquirida 
+em http://lista.mercadolivre.com.br/sanusb .
