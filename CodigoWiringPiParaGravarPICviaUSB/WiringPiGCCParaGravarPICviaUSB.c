@@ -2,6 +2,7 @@
 pois o pino físico 11 do Rpi, ou seja, wPi 0 está ligado no pino 1 (pin_e3) do microcontrolador. 
 Em subtituição a esse código, é possível digitar diretamente no LXTerminal: gpio mode 0 out <Enter> , 
 depois gpio write 0 0 <Enter> e finalmente: gpio write 0 1 <Enter>.
+OBS: Necessário instalar a bblioteca WiringPi no Raspberry Pi.
 */
 
 #include<stdio.h>
