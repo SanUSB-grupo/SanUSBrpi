@@ -1,9 +1,9 @@
-Para gravação via USB, basta conectar o cabo USB (5V), entre os pinos do Rpi (3,3 V) e do PIC (5V), e ligar apenas o fio azul entre o pino físico Rpi 11 (Wpi 0) 
-de 3,3 V ao pino e3 do microcontrolador PIC (pino 1 de entrada). Essa conexão, com proteção de tensão (5V <-> 3,3 V), é possível porque os pinos de I/O do 
-Rpi têm um diodo grampeador interno para 3,3V. Além disso, o pino e3 da placa PIC SanUSB tem um resistor de 2k2 ligado à fonte USB (5V), o que permite a 
-aplicação da tensão de 3,3 V ao pino e3 de entrada do PIC, com tensão proveniente do pino Wpi 0 do Rpi através do fio azul e conectado de um lado do resistor 
-de 2k2, como permite também a tensão de 5V (fonte USB da placa PIC) do outro lado deste resistor de 2k2, onde é aplicado a queda de tensão (5V - 3,3 V) para 
-o pino Rpi 11 (Wpi 0), quando o pino e3 de entrada do PIC recebe nível lógico alto.
+Para gravação via USB, basta conectar o cabo USB (5V) e ligar apenas o fio azul entre o pino físico Rpi 11 (Wpi 0) de 3,3 V ao pino e3 do microcontrolador PIC 
+(pino 1 de entrada). Essa conexão, com proteção de tensão (5V <-> 3,3 V), é possível porque os pinos de I/O do Rpi têm um diodo grampeador interno para 3,3V. 
+Além disso, o pino e3 da placa PIC SanUSB tem um resistor de 2k2 ligado à fonte USB (5V), o que permite a aplicação da tensão de 3,3 V em um lado do resistor 
+conectado ao pino e3 de entrada do PIC, com tensão proveniente do pino Wpi 0 do Rpi através do fio azul, e permite também a tensão de 5V (fonte USB da placa 
+PIC) do outro lado deste resistor de 2k2. Dessa forma, é aplicado a queda de tensão (5V - 3,3 V) no resistor protegendo o pino Rpi 11 (Wpi 0), quando o pino e3 
+de entrada do PIC recebe nível lógico alto.
 
 Caso seja utilizada  a comunicação serial, entre os pinos do PIC (5V) e do Rpi (3,3V), verifique se o jumper de tensão da porta USB (+5V) está removido, pois a 
 alimentacao do microcontrolador vem do pino do 3,3V do Rpi, como o circuito abaixo, para que os dois possam se comunicar na mesma tensão (3,3V) e não ocorrer 
