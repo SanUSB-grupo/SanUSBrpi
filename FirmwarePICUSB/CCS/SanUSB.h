@@ -14,7 +14,7 @@
 
 void clock_int_4MHz(void)//Se for utilizado habilitar o #use delay(clock=4000000) e desabilitar //delay(clock=48000000)
 {
- OSCCON=0B01100110; //with dual clock -> cpu and timers  #use delay(clock=4000000)
+ //OSCCON=0B01100110; //with dual clock -> cpu and timers  #use delay(clock=4000000)
  //while(read_eeprom(0xfd));
 //#use delay(clock=4000000) // internal Oscillator Clock of 4MHz
                            }

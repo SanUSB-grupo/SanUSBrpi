@@ -321,6 +321,7 @@ for(k=0;k<i;k++) {  Delay1TCY();} //12*i para 48 MHz
 
 void tempo_ms (unsigned int i)
 { unsigned int k; 
+if(!entrada_pin_e3){Reset();}//pressionar o botão para gravação
 EEADR =REG+0B11111100+tmp;
 EECON1=REG+EEADR & 0B00001011;
 while(EEDATA);
